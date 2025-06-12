@@ -16,12 +16,13 @@ class UserController extends Controller
         return view('blog-index', compact('blogs'));
     }
 
-    public function show($id)
+    public function show($code)
     {
-        $blog = Blog::with(['descriptions' => function($query) {
+        $blog = Blog::with(['descriptions' => function ($query) {
             $query->orderBy('priority');
-        }])->findOrFail($id);
+        }])->where('code', $code)->firstOrFail();
 
         return view('blog', compact('blog'));
-    }   
+    }
+
 }

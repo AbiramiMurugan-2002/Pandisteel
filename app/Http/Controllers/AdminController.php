@@ -20,11 +20,11 @@ class AdminController extends Controller
         return view('form');
     }
 
-    public function show($id)
+    public function show($code)
     {
         $blog = Blog::with(['descriptions' => function($query) {
             $query->orderBy('priority');
-        }])->findOrFail($id);
+        }])->where('code', $code)->firstOrFail();
 
         return view('blog', compact('blog'));
     }
@@ -84,14 +84,15 @@ class AdminController extends Controller
         return redirect()->route('blogindex');
     }
     
-    public function edit($id)
+    public function edit($code)
     {
         $blog = Blog::with(['descriptions' => function($query) {
             $query->orderBy('priority');
-        }])->findOrFail($id);
+        }])->where('code', $code)->firstOrFail();
 
         return view('edit', compact('blog'));
     }
+
 
     // public function update(Request $request, $id)
     // {
@@ -138,7 +139,7 @@ class AdminController extends Controller
     // }
     
     
-    public function update(Request $request, $id)
+    public function update(Request $request, $code)
     {
         $validated = $request->validate([
             'descriptions' => 'required|array',
@@ -148,7 +149,8 @@ class AdminController extends Controller
             'descriptions.*.priority' => 'required|integer',
         ]);
 
-        $blog = Blog::findOrFail($id);
+        // Find blog by code instead of id
+        $blog = Blog::where('code', $code)->firstOrFail();
 
         $blog->update([
             'is_published' => $request->boolean('is_published', false),
@@ -192,9 +194,10 @@ class AdminController extends Controller
         return redirect()->route('blogindex');
     }
 
-    public function destroy($id)
+
+    public function destroy($code)
     {
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::where('code', $code)->firstOrFail();
         $blog->delete();
         return redirect()->route('blogindex');
     }

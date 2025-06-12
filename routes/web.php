@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/blog',[UserController::class, 'index'])->name('blogs');
-Route::get('/blog/{id}',[UserController::class, 'show'])->name('blog.show');
+Route::get('/blog/{code}',[UserController::class, 'show'])->name('blog.show');
 
 Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/admin/login', [LoginController::class, 'login']);
@@ -32,8 +32,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/create', [AdminController::class, 'create'])->name('form');
     Route::post('/store', [AdminController::class, 'store'])->name('blog-store');
     Route::get('/blog', [AdminController::class, 'index'])->name('blogindex');
-    Route::get('/blog/{id}', [AdminController::class, 'show'])->name('showblog');
-    Route::get('/blog/{id}/edit', [AdminController::class, 'edit'])->name('blog-edit');
-    Route::put('/blog/{id}', [AdminController::class, 'update'])->name('blog-update');
-    Route::delete('/blog/{id}', [AdminController::class, 'destroy'])->name('blog-delete');
+    Route::get('/blog/{code}', [AdminController::class, 'show'])->name('showblog');
+    Route::get('/blog/{code}/edit', [AdminController::class, 'edit'])->name('blog-edit');
+    Route::put('/blog/{code}', [AdminController::class, 'update'])->name('blog-update');
+    Route::delete('/blog/{code}', [AdminController::class, 'destroy'])->name('blog-delete');
 });
