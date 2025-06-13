@@ -18,8 +18,8 @@
       <div class="layout-container flex h-full grow flex-col">
         <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f3e7e7] px-10 py-3">
           <div class="flex items-center gap-4 text-[#1b0e0e]">
-            <div class="size-4">
-               <img src="{{ asset('/logo/Turium_Logo.jpg') }}" alt="Turium">
+            <div>
+               <img src="{{ asset('storage/logo/Turium_Logo.jpg') }}" class="w-[200px] h-[75px]" alt="Turium">
             </div>
           </div>
           <div class="flex flex-1 justify-end gap-8">
@@ -187,7 +187,7 @@
                   Our Commitment to Excellence
                 </h1>
                 <p class="text-[#1b0e0e] text-base font-normal leading-normal max-w-[720px]">
-                  At SteelCo, we are committed to providing our customers with the best steel and alloy solutions. Our focus on quality, competitive pricing, fast delivery, and
+                  At Turium, we are committed to providing our customers with the best steel and alloy solutions. Our focus on quality, competitive pricing, fast delivery, and
                   expert support sets us apart from the competition.
                 </p>
               </div>
@@ -257,7 +257,7 @@
                   <div>
                     <p class="text-[#1b0e0e] text-base font-medium leading-normal">Exceptional Quality</p>
                     <p class="text-[#994d4d] text-sm font-normal leading-normal">
-                      "The steel beams from SteelCo were top-notch and perfect for our construction project. Highly recommend!" - Alex Turner, Construction Manager
+                      "The steel beams from Turium were top-notch and perfect for our construction project. Highly recommend!" - Alex Turner, Construction Manager
                     </p>
                   </div>
                 </div>
@@ -269,7 +269,7 @@
                   <div>
                     <p class="text-[#1b0e0e] text-base font-medium leading-normal">Reliable Service</p>
                     <p class="text-[#994d4d] text-sm font-normal leading-normal">
-                      "SteelCo's delivery service is incredibly reliable. We always receive our materials on time and in perfect condition." - Emily Carter, Metal Fabricator
+                      "Turium's delivery service is incredibly reliable. We always receive our materials on time and in perfect condition." - Emily Carter, Metal Fabricator
                     </p>
                   </div>
                 </div>
@@ -281,7 +281,7 @@
                   <div>
                     <p class="text-[#1b0e0e] text-base font-medium leading-normal">Expert Advice</p>
                     <p class="text-[#994d4d] text-sm font-normal leading-normal">
-                      "The technical support team at SteelCo provided invaluable advice for our engineering needs. Their expertise is unmatched." - Ryan Chen, Engineer
+                      "The technical support team at Turium provided invaluable advice for our engineering needs. Their expertise is unmatched." - Ryan Chen, Engineer
                     </p>
                   </div>
                 </div>
@@ -297,7 +297,7 @@
                 <a class="text-[#994d4d] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
                 <a class="text-[#994d4d] text-base font-normal leading-normal min-w-40" href="#">Contact Us</a>
               </div>
-              <p class="text-[#994d4d] text-base font-normal leading-normal">© 2023 SteelCo. All rights reserved.</p>
+              <p class="text-[#994d4d] text-base font-normal leading-normal">© 2023 Turium. All rights reserved.</p>
             </footer>
           </div>
         </footer>
