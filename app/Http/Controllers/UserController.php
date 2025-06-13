@@ -16,6 +16,7 @@ class UserController extends Controller
         return view('blog-index', compact('blogs'));
     }
 
+<<<<<<< HEAD
     public function show($id)
     {
         $blog = Blog::with(['descriptions' => function($query) {
@@ -24,4 +25,15 @@ class UserController extends Controller
 
         return view('blog', compact('blog'));
     }   
+=======
+    public function show($code)
+    {
+        $blog = Blog::with(['descriptions' => function ($query) {
+            $query->orderBy('priority');
+        }])->where('code', $code)->firstOrFail();
+
+        return view('blog', compact('blog'));
+    }
+
+>>>>>>> blog-updation
 }

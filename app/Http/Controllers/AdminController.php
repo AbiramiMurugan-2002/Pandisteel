@@ -20,11 +20,19 @@ class AdminController extends Controller
         return view('form');
     }
 
+<<<<<<< HEAD
     public function show($id)
     {
         $blog = Blog::with(['descriptions' => function($query) {
             $query->orderBy('priority');
         }])->findOrFail($id);
+=======
+    public function show($code)
+    {
+        $blog = Blog::with(['descriptions' => function($query) {
+            $query->orderBy('priority');
+        }])->where('code', $code)->firstOrFail();
+>>>>>>> blog-updation
 
         return view('blog', compact('blog'));
     }
@@ -84,15 +92,27 @@ class AdminController extends Controller
         return redirect()->route('blogindex');
     }
     
+<<<<<<< HEAD
     public function edit($id)
     {
         $blog = Blog::with(['descriptions' => function($query) {
             $query->orderBy('priority');
         }])->findOrFail($id);
+=======
+    public function edit($code)
+    {
+        $blog = Blog::with(['descriptions' => function($query) {
+            $query->orderBy('priority');
+        }])->where('code', $code)->firstOrFail();
+>>>>>>> blog-updation
 
         return view('edit', compact('blog'));
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> blog-updation
     // public function update(Request $request, $id)
     // {
     //     $validated = $request->validate([
@@ -138,7 +158,11 @@ class AdminController extends Controller
     // }
     
     
+<<<<<<< HEAD
     public function update(Request $request, $id)
+=======
+    public function update(Request $request, $code)
+>>>>>>> blog-updation
     {
         $validated = $request->validate([
             'descriptions' => 'required|array',
@@ -148,7 +172,12 @@ class AdminController extends Controller
             'descriptions.*.priority' => 'required|integer',
         ]);
 
+<<<<<<< HEAD
         $blog = Blog::findOrFail($id);
+=======
+        // Find blog by code instead of id
+        $blog = Blog::where('code', $code)->firstOrFail();
+>>>>>>> blog-updation
 
         $blog->update([
             'is_published' => $request->boolean('is_published', false),
@@ -192,9 +221,16 @@ class AdminController extends Controller
         return redirect()->route('blogindex');
     }
 
+<<<<<<< HEAD
     public function destroy($id)
     {
         $blog = Blog::findOrFail($id);
+=======
+
+    public function destroy($code)
+    {
+        $blog = Blog::where('code', $code)->firstOrFail();
+>>>>>>> blog-updation
         $blog->delete();
         return redirect()->route('blogindex');
     }

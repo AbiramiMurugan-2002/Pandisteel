@@ -10,6 +10,10 @@ class Blog extends Model
     use HasFactory;
     protected $fillable = [
         'is_published',
+<<<<<<< HEAD
+=======
+        'code', 
+>>>>>>> blog-updation
     ];
     protected $casts = [
         'is_published' => 'boolean',
