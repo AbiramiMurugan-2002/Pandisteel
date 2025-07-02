@@ -1,37 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <h4 class="mb-4 text-center">Login</h4>
-                        @if(session('error'))
-                            <div class="alert alert-danger">
-                                {{ session('error') }}
-                            </div>
-                        @endif
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" required autofocus>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Login</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+<div class="max-w-md mx-auto mt-10 bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold mb-4">Login</h2>
+    <form method="POST" action="/login" class="space-y-4">
+        @csrf
+        <input type="email" name="email" placeholder="Email"
+            class="w-full border rounded px-4 py-2" required>
+
+        <input type="password" name="password" placeholder="Password"
+            class="w-full border rounded px-4 py-2" required>
+
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
+    </form>
+</div>
+@endsection
